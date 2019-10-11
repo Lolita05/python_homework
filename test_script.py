@@ -1,0 +1,1 @@
+print('Hello! System version control setup demostration is almost finished')
