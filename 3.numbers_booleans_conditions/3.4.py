@@ -1,7 +1,7 @@
 # Вариация задачи FizzBuzz
 
 a = int(input()) # задаем целое число
-if a % 3 == 0 and a % 5 == 0: # делится на 15
+if a % 15 == 0: # делится на 15
     print("FizzBuzz")
 elif a % 5 == 0: # делится на 5
     print("Buzz")
