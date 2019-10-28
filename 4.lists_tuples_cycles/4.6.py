@@ -8,7 +8,7 @@ print (elements[::~0]) #2
 
 elements = [1, 2, ('fruit', 5)]
 elements.reverse()
-print (elements) #3
+print(elements) #3
 
 elements = [1, 2, ('fruit', 5)]
 a = list(reversed(elements))
@@ -20,7 +20,7 @@ for i in range(int(len(elements) / 2)):
 print(elements) #5
 
 elements = [1, 2, ('fruit', 5)]
-elements = [i for in range(len(elements) -1, -1, -1)]
+elements = [i for i in range(len(elements) -1, -1, -1)]
 print(elements) #6
 
 elements = [1, 2, ('fruit', 5)]
