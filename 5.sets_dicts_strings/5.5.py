@@ -6,6 +6,6 @@ if a[0].isdigit():
 if a[0].isalpha():
     print('начинается с буквы', a[0])
 if a.startswith(' '):
-    print('начинается с пробела', a[0])
+    print('начинается с пробельного символа', a[0])
 else:
     print('начинается с',  a[0])
