@@ -17,19 +17,19 @@ print(Squares(a, b))
 
 
 #переходы из одного нуклеотида в другой (нуклеотиды должны быть разными) - 'A->T'
-sequence = ['A', 'A', 'T', 'G', 'C', 'C']
+sequence = ['A', 'T', 'G']
 
 
 def nucleotide_change(seq):
     for n, i in enumerate(seq):
         if i == 'A':
-            seq[n] = 'T'
+            seq[n] = 'A -> T', 'A -> G', 'A -> C'
         if i == 'T':
-            seq[n] = 'A'
+            seq[n] = 'T -> A', 'T -> G', 'T -> C'
         if i == 'G':
-            seq[n] = 'C'
+            seq[n] = 'G -> A', 'G -> T', 'G -> C'
         if i == 'C':
-            seq[n] = 'G'
+            seq[n] = 'C -> A', 'C -> G', 'C -> A'
     return seq
 
 print(nucleotide_change(sequence))
