@@ -1,16 +1,10 @@
 # Написание comprehension's
 
 #квадраты чисел от 0 до 10
-a = 0
-b = 10
-
-
-def Squares(a, b):
-    for i in range (a, b+1):
-        print(i**2)
-
-
-print(Squares(a, b))
+squares = []
+for x in range(10):
+  squares.append(x ** 2)
+print(squares)
 
 #суммы 2-ух чисел взятых из последовательностей от 0 до 3 и от 5 до 8
 
