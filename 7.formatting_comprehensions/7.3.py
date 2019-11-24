@@ -1,17 +1,16 @@
 # Написание comprehension's
 
 #квадраты чисел от 0 до 10
-squares = []
-for x in range(10):
-  squares.append(x ** 2)
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+squares = [i**2 for i in l]
 print(squares)
 
 #суммы 2-ух чисел взятых из последовательностей от 0 до 3 и от 5 до 8
-
-
+l = [[0, 1, 2, 3],[5, 6, 7, 8]]
+summa = [sum(i) for i in zip(*l)]
 
 #переходы из одного нуклеотида в другой (нуклеотиды должны быть разными) - 'A->T'
-sequence = ['A', 'T', 'G']
+sequence = ['A', 'T', 'G', 'C']
 
 
 def nucleotide_change(seq):

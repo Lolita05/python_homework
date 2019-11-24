@@ -3,12 +3,12 @@
 list1 = [1, 3, 5, 'wow']
 
 
-def binary_search(list, key, lo=0, hi=None):
+def binary_search(list1, key, lo=0, hi=None):
     if hi is None:
-        hi = len(list)
+        hi = len(list1)
     while lo < hi:
         mid = (lo+hi)//2
-        midval = list[mid]
+        midval = list1[mid]
         if midval < key:
             lo = mid+1
         elif midval > key:
