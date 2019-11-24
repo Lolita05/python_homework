@@ -2,15 +2,20 @@
 # и отсортированный список, возвращает индекс с этим элементом)
 list1 = [1, 3, 5, 'wow']
 
-def binary_search(list, key):
-    left = -1
-    right = len(list)
-    while right > left + 1:
-        middle = (left + right) // 2
-        if list1[middle] >= key:
-            right = middle
+
+def binary_search(list, key, lo=0, hi=None):
+    if hi is None:
+        hi = len(list)
+    while lo < hi:
+        mid = (lo+hi)//2
+        midval = list[mid]
+        if midval < key:
+            lo = mid+1
+        elif midval > key:
+            hi = mid
         else:
-            left = middle
-    return f"element {key} has index {right}"
+            return f"element {key} has index {mid}"
+    return -1
+
 
 print( binary_search(list1, 3))
