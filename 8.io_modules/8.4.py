@@ -16,7 +16,7 @@ visited = [False] * n
 def dfs(v):
     visited[v] = 1
     for i in range(n):
-        if adj_list[v][i] == 1 and not visited[i]:
+        if adj_list[v][i] == i and not visited[i]:
             dfs(i)
 
 ans = 0
