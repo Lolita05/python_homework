@@ -10,8 +10,10 @@ l = [[0, 1, 2, 3],[5, 6, 7, 8]]
 summa = [sum(i) for i in zip(*l)]
 
 #переходы из одного нуклеотида в другой (нуклеотиды должны быть разными) - 'A->T'
-sequence = ['A', 'T', 'G', 'C']
-
+sequence1 = ['A', 'T', 'G', 'C']
+sequence2 = ['A', 'T', 'G', 'C']
+sequence = [(f"{i} -> {j}") for i in sequence1 for j in sequence2 if i!=j]
+print(sequence)
 
 def nucleotide_change(seq):
     for n, i in enumerate(seq):
