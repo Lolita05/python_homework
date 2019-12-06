@@ -27,20 +27,19 @@ def global_align(seq1, seq2, gap_penalty, match_award, mismatch_penalty):
     # Генерим пустую матрицу
     score = zeros(m + 1, n + 1)
 
-    # Calculate score table
 
-    # Fill out first column
+    # Заполняем колонки
     for i in range(0, m + 1):
         score[i][0] = gap_penalty * i
 
-    # Fill out first row
+    # Заполняем строки
     for j in range(0, n + 1):
         score[0][j] = gap_penalty * j
 
-    # Fill out all other values in the score matrix
+
     for i in range(1, m + 1):
         for j in range(1, n + 1):
-            # функция
+            # функция присвоение скора для двух нуклеотидов
             def match_score(alpha, beta):
                 if alpha == beta:
                     return match_award
@@ -64,15 +63,14 @@ def global_align(seq1, seq2, gap_penalty, match_award, mismatch_penalty):
     i = m
     j = n
 
-    # We'll use i and j to keep track of where we are in the matrix, just like above
-    while i > 0 and j > 0:  # end touching the top or the left edge
+    # Используем i и j, чтобы отслеживать, где мы находимся в матрице
+    while i > 0 and j > 0:
         score_current = score[i][j]
         score_diagonal = score[i - 1][j - 1]
         score_up = score[i][j - 1]
         score_left = score[i - 1][j]
 
-        # Check to figure out which cell the current score was calculated from,
-        # then update i and j to correspond to that cell.
+        # обновление данных ячейки
         if score_current == score_diagonal + match_score(seq1[j - 1], seq2[i - 1]):
             align1 += seq1[j - 1]
             align2 += seq2[i - 1]
@@ -87,7 +85,6 @@ def global_align(seq1, seq2, gap_penalty, match_award, mismatch_penalty):
             align2 += seq2[i - 1]
             i -= 1
 
-    # Finish tracing up to the top left cell
     while j > 0:
         align1 += seq1[j - 1]
         align2 += '-'
@@ -97,8 +94,6 @@ def global_align(seq1, seq2, gap_penalty, match_award, mismatch_penalty):
         align2 += seq2[i - 1]
         i -= 1
 
-    # Since we traversed the score matrix from the bottom right, our two sequences will be reversed.
-    # These two lines reverse the order of the characters in each sequence.
     align1 = align1[::-1]
     align2 = align2[::-1]
 
