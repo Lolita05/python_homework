@@ -13,16 +13,14 @@ adj_list = [[2, 4, 6],
 
 visited = [False] * n
 
-def dfs(v):
-    visited[v] = 1
-    for i in range(n):
-        if adj_list[v][i] == i and not visited[i]:
-            dfs(i)
+visited = [False] * (n + 1)
+prev = [None] * (n + 1)
 
-ans = 0
-for i in range(n):
-    if not visited[i]:
-        ans += 1
-        dfs(i)
+def dfs(start, visited, prev, g):
+    visited[start] = True
+    for u in g[start]:
+        if not visited[u]:
+            prev[u] = start
+            dfs(u)
 
-print(ans)
+dfs(start, visited, prev, g)
