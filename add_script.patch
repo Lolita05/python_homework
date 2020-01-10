@@ -1,0 +1,99 @@
+Index: 11.numpy_random_simulations/11.6.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 11.numpy_random_simulations/11.6.py	(date 1578593828180)
++++ 11.numpy_random_simulations/11.6.py	(date 1578593828180)
+@@ -0,0 +1,2 @@
++#буквы во всех словах кроме первой и последней перемешаны
++
+Index: 11.numpy_random_simulations/11.7.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 11.numpy_random_simulations/11.7.py	(date 1578593816034)
++++ 11.numpy_random_simulations/11.7.py	(date 1578593816034)
+@@ -0,0 +1,2 @@
++# коврик Серпинского
++
+Index: 12.functional_programming/12.1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 12.functional_programming/12.1.py	(date 1578649713656)
++++ 12.functional_programming/12.1.py	(date 1578649713656)
+@@ -0,0 +1,39 @@
++#Напишите по 3 примера использования map и filter на произвольных коллекциях -
++# отпроцессируйте их элементы и отфильтруйте как вам угодно, для визуализации оберните результат в лист
++
++#map
++#1
++def division(a):
++    return a/2
++
++numbers = (1, 2, 3, 4)
++result = map(division, numbers)
++print(list(result))
++
++#2
++numbers = (1, 2, 3, 4)
++result = map(lambda x: x / 2, numbers)
++print(list(result))
++
++#3
++dict_a = [{'name': 'python', 'points': 10}, {'name': 'java', 'points': 8}]
++result = map(lambda x : x['name'], dict_a)
++print(list(result))
++
++#filter
++#1
++a = [1, 2, 3, 4, 5, 6]
++result = filter(lambda x : x % 2 == 0, a)
++print(list(result))
++
++#2
++dict_a = [{'name': 'python', 'points': 10}, {'name': 'java', 'points': 8}]
++result = filter(lambda x : x['name'] == 'python', dict_a)
++print(list(result))
++
++#3
++def division(a):
++    return a/2
++numbers = (1, 2, 3, 4)
++result = filter(division, numbers)
++print(list(result))
+Index: 12.functional_programming/12.2.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 12.functional_programming/12.2.py	(date 1578594233720)
++++ 12.functional_programming/12.2.py	(date 1578594233720)
+@@ -0,0 +1,0 @@
+Index: 12.functional_programming/12.3.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 12.functional_programming/12.3.py	(date 1578594240690)
++++ 12.functional_programming/12.3.py	(date 1578594240690)
+@@ -0,0 +1,0 @@
+Index: 12.functional_programming/12.4.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 12.functional_programming/12.4.py	(date 1578690385738)
++++ 12.functional_programming/12.4.py	(date 1578690385738)
+@@ -0,0 +1,8 @@
++import itertools
++
++def generate(length):
++    dna = ['A', 'G', 'C', 'T']
++    for item in itertools.product(dna, repeat = length):
++        yield "".join(item)
++
++print(list(generate(2)))
