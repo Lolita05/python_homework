@@ -1,5 +1,4 @@
 
-n = 10
 adj_list = [[2, 4, 6],
             [9],
             [0, 3],
@@ -11,16 +10,22 @@ adj_list = [[2, 4, 6],
             [6],
             [1]]
 
-visited = [False] * n
+def search(vertex, graph, visited):
+    visited[vertex] = True
 
-visited = [False] * (n + 1)
-prev = [None] * (n + 1)
+    for neighbour in graph[vertex]:
+        if not visited[neighbour]:
+            print(vertex, neighbour, visited)
+            search(neighbour, graph, visited)
 
-def dfs(start, visited, prev, g):
-    visited[start] = True
-    for u in g[start]:
-        if not visited[u]:
-            prev[u] = start
-            dfs(u)
+def dfs_num(graph):
 
-dfs(start, visited, prev, g)
+    visited = {v: False for v in graph}
+    a = 0
+    for v in graph:
+        if visited[v] == False:
+            a += 1
+        search(v, graph, visited)
+    return a
+
+print(dfs_num(adj_list))
