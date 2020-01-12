@@ -1,3 +1,6 @@
+#Напишите генератор, осуществляющий считывание фасты и
+# возвращающий по 1-ой оттранслированной последовательности
+
 from Bio.Seq import SeqIO
 from Bio.Seq import Seq
 from Bio.Alphabet import IUPAC
