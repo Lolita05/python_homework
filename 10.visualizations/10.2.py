@@ -7,4 +7,5 @@ from Bio import SeqIO
 records = list(SeqIO.parse("seqs.fasta", "fasta"))
 sizes = [len(rec) for rec in records]
 plt.hist(sizes)
+
 plt.show()
