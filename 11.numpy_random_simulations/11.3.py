@@ -1,43 +1,43 @@
 #monkey sort
+import random
+import numpy as np
+import matplotlib.pyplot as plt
 
 #проверка отсортированности списка
 def sorted_list(lst):
     #True - отсортирован False - не отсортирован
     sorted_list = True
+    if len(lst) < 2:
+        return True
     for i in range(len(lst) - 1):
         if lst[i] > lst[i + 1]:
-            sorted_list = False
-    return True if sorted_list else False
+            return False
+    return True
 
 lst1 = [1, 2, 3]
 lst2 = [2, 2, 1, 7]
-sorted_list(lst1)
-sorted_list(lst2)
+
+sorted_list(lst1) #True
+sorted_list(lst2) #False
 
 #monkey sort
 def monkey_sort(lst):
-    i = 0
     while not sorted_list(lst):
-        np.random.shuffle(lst)
-        i += 1
-    return i
+        random.shuffle(lst)
+    return lst
 
 #monkey sort визуализация
-def monkey_sort_visualization():
-    xx = range(2, 9)
-    yy_M = []
-    yy_SE = []
-    num_of_iterations = 100
-    for i in range(2, 9):
-        print(i)
-        speeds = []
-        for _ in range(num_of_iterations):
-            lst = np.random.standard_normal(i)
-            speeds.append(monkey_sort(lst))
-        M = sum(speeds)/len(speeds)
-        SIGMA = np.sqrt(sum([(speed-M)**2 for speed in speeds])/len(speeds))
-        SE = SIGMA/np.sqrt(len(speeds))
-        yy_M.append(M)
-        yy_SE.append(SE)
-    plt.errorbar(xx, yy_M, yy_SE)
-    plt.show()
+times = []
+for i in range(len(lst)):
+    l = np.random.randint(0, 50, i)
+    start = time.time()
+    monkey_sort(lst)
+    done = time.time()
+    times.append((done - start, i))
+
+t = np.array(times, dtype=[("time", "float"), ("length", "float")])
+visual = plt.plot(t["length"], t["time"])
+plt.xlabel("length")
+plt.ylabel("time")
+plt.title("Monkey sort time")
+plt.show()
