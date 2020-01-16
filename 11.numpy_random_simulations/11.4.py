@@ -1,4 +1,4 @@
-#random walk
+#random walk 1d
 
 import random
 import numpy as np
@@ -23,3 +23,17 @@ for idownp, iupp in zip(downp, upp):
 
 plt.plot(positions)
 plt.show()
+
+#random walk 2d
+
+import turtle
+import random
+
+draw = turtle.Turtle()
+draw.speed(10)
+
+for i in range(100):
+  draw.forward(10)
+  a = random.randrange(0,360,90) #на 90 градусов
+  #a = random.randrange(0,200,60) - это красивее
+  draw.right(a)
