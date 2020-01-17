@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 #проверка отсортированности списка
 def sorted_list(lst):
     #True - отсортирован False - не отсортирован
-    sorted_list = True
     if len(lst) < 2:
         return True
     for i in range(len(lst) - 1):
@@ -27,13 +26,14 @@ def monkey_sort(lst):
     return lst
 
 #monkey sort визуализация
-times = []
-for i in range(len(lst)):
-    l = np.random.randint(0, 50, i)
-    start = time.time()
-    monkey_sort(lst)
-    done = time.time()
-    times.append((done - start, i))
+for i in range(2, 10):
+    times = []
+    for a in range(10):
+        l = np.random.randint(0, 50, i)
+        start = time.time()
+        monkey_sort(l)
+        done = time.time()
+        times.append((done - start, i))
 
 t = np.array(times, dtype=[("time", "float"), ("length", "float")])
 visual = plt.plot(t["length"], t["time"])
