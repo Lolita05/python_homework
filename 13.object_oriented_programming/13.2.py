@@ -49,6 +49,6 @@ class RNA:
                 return dna
 
 
-a = RNA('AAAAUGAAGGGUGAAU')
+a = RNA("AAAAUGAAGGGUGAAU")
 print(a.translation())
 print(a.reverse_transcription())
