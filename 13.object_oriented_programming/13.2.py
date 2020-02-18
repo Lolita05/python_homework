@@ -30,9 +30,9 @@ class RNA:
                 if len(seq) % 3 == 0:
                     return seq.translate(table=tab)
                 elif (len(seq) + 1) % 3 == 0:
-                    return seq.translate(table=tab) + Seq('N')
+                    return seq.translate(table=tab) + Seq("N")
                 elif (len(seq) + 2) % 3 == 0:
-                    return seq.translate(table=tab) + Seq('N') + Seq('N')
+                    return seq.translate(table=tab) + Seq("N") + Seq("N")
 
     def reverse_transcription(self):
         """
