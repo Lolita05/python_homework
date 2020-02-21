@@ -9,8 +9,8 @@ class RNA:
     molecular_type = "nucleic acid"
 
     def __init__(self, name, seq, forward=True):
-        self.seq = seq
         self.name = name
+        self.seq = seq
         self.forward = forward
         if not self.forward:
             self.seq = self.seq[::-1]
