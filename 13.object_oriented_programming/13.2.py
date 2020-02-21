@@ -17,7 +17,7 @@ class RNA:
 
     def translation(self):
         """
-        Function to translation of RNA seq into protein seq
+        Function to translate RNA seq into protein seq
         :return: protein seq
         """
         for i in self.seq:
