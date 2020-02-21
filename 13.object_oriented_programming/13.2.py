@@ -8,12 +8,17 @@ class RNA:
     alphabet = "AUGC"
     molecular_type = "nucleic acid"
 
-    def __init__(self, seq, forward=True):
+    def __init__(self, name, seq, forward=True):
         self.seq = seq
+        self.name = name
         self.forward = forward
         if not self.forward:
             self.seq = self.seq[::-1]
             self.forward = True
+
+    def write(self):
+        '''Writes RNA name to the screen.'''
+        print("I am " + self.name)
 
     def translation(self):
         """
@@ -49,6 +54,6 @@ class RNA:
                 return dna
 
 
-a = RNA("AAAAUGAAGGGUGAAU")
+a = RNA("trna", '"AAAAUGAAGGGUGAAU")
 print(a.translation())
 print(a.reverse_transcription())
