@@ -20,8 +20,3 @@ a = posNumbersSet(1, 1, 1)
 a.add(-2)
 a.add(-4)
 a.add(4)
-
-
-
-
-
