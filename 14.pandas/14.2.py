@@ -1,3 +1,6 @@
+#В файлике train.csv содержится информация о числе ридов с каждым из 4-ёх нуклеотидов по разным позициям (колонки A, T, G, C)).
+# Постройте гистограмму распределения этих чисел
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
