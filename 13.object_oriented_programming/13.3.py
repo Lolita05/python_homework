@@ -5,9 +5,7 @@ class posNumbersSet(set):
     def __init__(self, *numbers):
         s=[]
         for number in numbers:
-            if number <= 0:
-                continue
-            else:
+            if number > 0:
                 s.append(number)
         super().__init__(s)
 
