@@ -11,8 +11,7 @@ class RNA:
     def __init__(self, name, seq, forward=True):
         self.name = name
         self.seq = seq
-        self.forward = forward
-        if not self.forward:
+        if not forward:
             self.seq = self.seq[::-1]
             self.forward = True
 
