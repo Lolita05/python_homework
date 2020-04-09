@@ -2,7 +2,7 @@
 
 import re
 
-pattern = r'\w+[^.!?]*[!]'
+pattern = r''
 
 with open("/Users/lolitiy/Documents/inst_bioinf_19_20/python/2430AD.txt", 'r') as text:
     with open("/Users/lolitiy/Documents/inst_bioinf_19_20/python/hjm.txt", 'w+') as sentenceExclamationPoint:
