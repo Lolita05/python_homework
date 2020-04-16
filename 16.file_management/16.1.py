@@ -11,8 +11,6 @@ def file_migration(PATH_dir, PATH_file):
     return None
 
     '''
-    import os
-    import shutil
 
     os.makedirs(PATH_dir, exist_ok=True)
     shutil.move(PATH_file, PATH_dir)
@@ -43,7 +41,6 @@ def copyfile(PATH_file, PATH_copyfile):
 copyfile('/Users/lolitiy/test/data.csv', '/Users/lolitiy/test/data1.csv')
 
 def rename_file(PATH_file, PATH_rename_file):
-    import os
 
     os.rename(PATH_file, PATH_rename_file)
 
@@ -54,9 +51,7 @@ def moveAllFilesinDir(srcDir, dstDir):
     """
     Move all files from source Dir to destination Dir
     """
-    import os
-    import shutil
-    import glob
+
     # Check if both the are directories
     if os.path.isdir(srcDir) and os.path.isdir(dstDir) :
         # Iterate over all the files in source directory
