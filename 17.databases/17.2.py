@@ -1,6 +1,6 @@
 #csv2tbl.py
 
-import sqllite3
+import sqlite3
 import io
 import os.path
 import glob
