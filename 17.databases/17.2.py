@@ -51,7 +51,7 @@ query_t2 = [(1, 'M', 'm'),
             (17, 'M', 'm'),
             (18, 'M', 'w')]
 
-connection.executemany('''INSERT INTO t2 VALUES (?, ?, ?)''', query_t2)
+cnx.executemany('''INSERT INTO t2 VALUES (?, ?, ?)''', query_t2)
 
 cnx.commit()
 
