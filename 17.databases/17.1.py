@@ -38,19 +38,17 @@ connection.execute(sql)
 connection.commit()
 
 #DELETE
-sql = "DELETE FROM first WHERE first_name = 'Vasya'"
+sql1 = "DELETE FROM first WHERE first_name = 'Vasya'"
 
-connection.execute(sql)
+connection.execute(sql1)
 connection.commit()
 
 #CASCADE
-connection2 = sql.connect('second.db')
-connection2.execute('''CREATE TABLE IF NOT EXISTS second (
+
+connection.execute('''CREATE TABLE IF NOT EXISTS second (
                                                         id INTEGER PRIMARY KEY,
                                                         name TEXT REFERENCES first(first_name) ON UPDATE CASCADE
                                                         )''')
 connection.commit()
-connection2.commit()
 
 connection.close()
-connection1.close()
