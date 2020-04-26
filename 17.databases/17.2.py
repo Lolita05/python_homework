@@ -27,7 +27,8 @@ cnx.commit()
 cnx.execute('''CREATE TABLE IF NOT EXISTS t2 (
                                                         id INTEGER PRIMARY KEY,
                                                         diagnosis TEXT,
-                                                        sex TEXT
+                                                        sex TEXT,
+                                                        FOREIGN KEY(id) REFERENCES t(id)
                                                         )''')
 cnx.commit()
 
