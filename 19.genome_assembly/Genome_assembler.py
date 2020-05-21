@@ -1,5 +1,3 @@
-
-
 class Node:
     """ Class Node to represent a vertex in the de bruijn graph """
     def __init__(self, lab):
@@ -60,7 +58,6 @@ def output_contigs(g):
     for k in V.keys():
         if V[k].indegree < V[start].indegree:
             start = k
-
     contig = start
     current = start
     while len(E[current]) > 0:
@@ -69,11 +66,11 @@ def output_contigs(g):
         del E[current][0]
         contig += next.label[-1]
         current = next.label
-
     return contig
 
-    def write_fasta(a):
-        """ write output fasta file """
-        with open('debrujin_assembly.fasta', 'w') as output:
-            output.write(f">output_contig\n{a}\n")
-
+def assembly(input_file, k, output_file):
+    reads = read_reads(input_file)
+    g = construct_graph(reads, k)
+    contig = output_contigs(g)
+    with open(output_file, 'w') as output:
+        output.write(f">output_contig\n{contig}\n")
