@@ -52,10 +52,10 @@ query_t2 = [(1, 'M', 'm'),
             (17, 'M', 'm'),
             (18, 'M', 'w')]
 
-cnx.executemany('''INSERT INTO t2 VALUES (?, ?, ?)''', query_t2)
+cnx.executemany('''UPDATE INSERT INTO t2 VALUES (?, ?, ?)''', query_t2)
 
 cnx.commit()
 
-query = ''' INSERT INTO t (sex) SELECT (sex) FROM t2'''
+query = '''UPDATE t SET sex = (SELECT sex FROM t2 WHERE t2.id = t.id)'''
 cnx.execute(query)
 cnx.commit()

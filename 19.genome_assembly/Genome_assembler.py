@@ -1,3 +1,6 @@
+import sys, collections, argparse
+
+
 class Node:
     """ Class Node to represent a vertex in the de bruijn graph """
     def __init__(self, lab):
@@ -9,9 +12,9 @@ class Edge:
     def __init__(self, lab):
         self.label = lab
 
-def read_reads(fname):
-    """ Read short reads in FASTA format. It is assumed that one line in the input file correspond to one read. """
-    f = open(fname, 'r')
+def read_reads(input):
+    """ Read short reads in FASTA format. One line in the input file correspond to one read. """
+    f = open(input, 'r')
     lines = f.readlines()
     f.close()
     reads = []
@@ -22,7 +25,7 @@ def read_reads(fname):
 
     return reads
 
-def construct_graph(reads, k):
+def construct_graph(reads, k=5):
     """ Construct de bruijn graph from sets of short reads with k length word"""
     edges = dict()
     vertices = dict()
@@ -54,7 +57,7 @@ def output_contigs(g):
     V = g[0]
     E = g[1]
     # Pick starting node (the vertex with zero in degree)
-    start = V.keys()[0]
+    start = list(V.keys())[0]
     for k in V.keys():
         if V[k].indegree < V[start].indegree:
             start = k
@@ -64,19 +67,14 @@ def output_contigs(g):
     while len(E[current]) > 0:
         # Pick the next node to be traversed (for now, at random)
         next = E[current][0]
-        del E[current][0]
+        del E[current][0]˚
         contig += next.label[-1]
         current = next.label
 
     return contig
 
-def print_graph(g):
-    """ Print the information in the graph to be (somewhat) presentable """
-    V = g[0]
-    E = g[1]
-    for k in V.keys():
-        print "name: ", V[k].label, ". indegree: ", V[k].indegree, ". outdegree: ", V[k].outdegree
-        print "Edges: "
-        for e in E[k]:
-            print e.label
-        print
+    def write_fasta(a):
+        """ write output fasta file """
+        with open('debrujin_assembly.fasta', 'w') as output:
+            output.write(f">output_contig\n{a}\n")
+
