@@ -1,4 +1,3 @@
-import sys, collections, argparse
 
 
 class Node:
@@ -67,7 +66,7 @@ def output_contigs(g):
     while len(E[current]) > 0:
         # Pick the next node to be traversed (for now, at random)
         next = E[current][0]
-        del E[current][0]˚
+        del E[current][0]
         contig += next.label[-1]
         current = next.label
 
