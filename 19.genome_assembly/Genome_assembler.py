@@ -1,3 +1,6 @@
+#import argparse
+import sys
+
 class Node:
     """ Class Node to represent a vertex in the de bruijn graph """
     def __init__(self, lab):
@@ -68,9 +71,18 @@ def output_contigs(g):
         current = next.label
     return contig
 
-def assembly(input_file, k, output_file):
+def assembly(input_file, k=5, output_file):
     reads = read_reads(input_file)
     g = construct_graph(reads, k)
     contig = output_contigs(g)
     with open(output_file, 'w') as output:
         output.write(f">output_contig\n{contig}\n")
+
+
+#if __name__ == "__main__":
+    #parser = argparse.ArgumentParser(prog='debruijn_genome_assembler', description='De Brujin genome assembler tool')
+    #parser.add_argument('-i', '--input_file', required=True, type=str, help='fasta file with short reads')
+    #parser.add_argument('-k', default=5, type=int, help='k-mers length')
+    #parser.add_argument('-o', '--output_file', type=str, help='fasta file with whole contig')
+    #args = parser.parse_args()
+    #assembly(args['input_file'], args['k'], args['output_file'])
