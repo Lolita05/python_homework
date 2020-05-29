@@ -1,5 +1,5 @@
 #import argparse
-import sys
+
 
 class Node:
     """ Class Node to represent a vertex in the de bruijn graph """
@@ -77,6 +77,7 @@ def assembly(input_file, k=5, output_file):
     contig = output_contigs(g)
     with open(output_file, 'w') as output:
         output.write(f">output_contig\n{contig}\n")
+
 
 
 #if __name__ == "__main__":

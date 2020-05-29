@@ -1,0 +1,8 @@
+2020-05-30 00:42:48: DEBUG: [image_neg] loading image
+2020-05-30 00:42:48: DEBUG: [image_neg] saving image
+2020-05-30 00:42:48: DEBUG: [image_grey] loading image
+2020-05-30 00:42:49: DEBUG: [image_grey] saving image
+2020-05-30 00:42:49: DEBUG: [simpson_chalkboard] loading image
+2020-05-30 00:42:49: DEBUG: [simpson_chalkboard] open images
+2020-05-30 00:42:49: DEBUG: [simpson_chalkboard] making mask
+2020-05-30 00:42:49: DEBUG: [simpson_chalkboard] saving image
