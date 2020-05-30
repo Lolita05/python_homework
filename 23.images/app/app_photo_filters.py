@@ -1,7 +1,6 @@
 # стоит обязательно попробовать фильтр с предсказанием праздника :)
 import argparse, sys
 import logging
-import random
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 import cv2
 import matplotlib.pyplot as plt

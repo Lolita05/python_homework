@@ -1,20 +1,16 @@
-#import argparse
+import argparse
+import logging
+from Node import Node
+from Edge import Edge
 
+logging.basicConfig(filename='app_photo_filter.log', filemode='w', format='%(asctime)s: %(levelname)s: %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S', level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
-class Node:
-    """ Class Node to represent a vertex in the de bruijn graph """
-    def __init__(self, lab):
-        self.label = lab
-        self.indegree = 0
-        self.outdegree = 0
-
-class Edge:
-    def __init__(self, lab):
-        self.label = lab
-
-def read_reads(input):
+logger.debug('reading reads')
+def read_reads(input_file):
     """ Read short reads in FASTA format. One line in the input file correspond to one read. """
-    f = open(input, 'r')
+    f = open(input_file, 'r')
     lines = f.readlines()
     f.close()
     reads = []
@@ -25,6 +21,7 @@ def read_reads(input):
 
     return reads
 
+logger.debug('constructing graph')
 def construct_graph(reads, k=5):
     """ Construct de bruijn graph from sets of short reads with k length word"""
     edges = dict()
@@ -69,21 +66,20 @@ def output_contigs(g):
         del E[current][0]
         contig += next.label[-1]
         current = next.label
+    logger.debug('creating contig')
     return contig
 
-def assembly(input_file, k=5, output_file):
+def assembly(input_file, k, output_file):
     reads = read_reads(input_file)
     g = construct_graph(reads, k)
     contig = output_contigs(g)
     with open(output_file, 'w') as output:
         output.write(f">output_contig\n{contig}\n")
 
-
-
-#if __name__ == "__main__":
-    #parser = argparse.ArgumentParser(prog='debruijn_genome_assembler', description='De Brujin genome assembler tool')
-    #parser.add_argument('-i', '--input_file', required=True, type=str, help='fasta file with short reads')
-    #parser.add_argument('-k', default=5, type=int, help='k-mers length')
-    #parser.add_argument('-o', '--output_file', type=str, help='fasta file with whole contig')
-    #args = parser.parse_args()
-    #assembly(args['input_file'], args['k'], args['output_file'])
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(prog='debruijn_genome_assembler', description='De Brujin genome assembler tool')
+    parser.add_argument('-i', '--input_file', required=True, dest='input_file')
+    parser.add_argument('-k', default=5, type=int)
+    parser.add_argument('-o', '--output_file', default = 'out.fasta', dest='output_file')
+    args = parser.parse_args()
+    assembly(input_file = args.input_file, k = args.k, output_file = args.output_file)
